@@ -1,0 +1,44 @@
+{
+    "splash_cake_log": {
+      "title": "Splash Cake log file format",
+      "description": "Splash Cake log file format",
+      "url": "https://github.com/Seldaek/monolog",
+      "regex": {
+        "default": {
+            "pattern": "^\\[PID (?<process_id>\\d*)] \\[(?<ip_address>(?:[0-9]{1,3}\\.){3}[0-9]{1,3})\\] \\[(?<timestamp>\\d{4}\\-\\d{2}\\-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] (?!\\[SplashSforceSoapClient\\])(?<message>.+) - \\[requestHash=(?<request_hash>\\w+)\\]$"
+        },
+        "splashSforceSoapClient": {
+            "pattern": "\\[PID (?<process_id>\\d*)] \\[(?<ip_address>(?:[0-9]{1,3}\\.){3}[0-9]{1,3})\\] \\[(?<timestamp>\\d{4}\\-\\d{2}\\-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] \\[SplashSforceSoapClient\\] (?<json_body>.+) - \\[requestHash=(?<request_hash>\\w+)\\]"
+        }        
+      },
+      "body-field" : "message",
+      "opid-field" : "request_hash",
+      "value": {
+          "ip_address": {
+              "kind": "string"
+          },
+          "process_id": {
+              "kind": "integer",
+              "identifier": true
+          },
+          "message": {
+              "kind": "string"
+          },
+          "request_hash": {
+              "kind": "string"
+          },
+          "json_body": {
+              "kind": "json"
+          }
+      },
+      "sample": [
+        {
+          "line": "[PID 3536] [172.20.0.1] [2022-03-06 09:34:57] [splash\\TuningForkIframe::setCookie] [splash\\TuningForkIframe] setCookie DOMAIN=splashlocal.com VALUE=tuningfork/Tomato Pie PATH=/ TIMEOUT=1678113297 USER_ID=32 Secure = 1 - [requestHash=47453334]"
+        },
+        {
+          "line": "[PID 3538] [172.20.0.1] [2022-03-06 09:35:35] [SplashSforceSoapClient] {\"action\":\"\",\"location\":\"https://splash2-dev-ed.my.salesforce.com/services/Soap/u/27.0/00D8c000003D6UU\",\"request\":\"<ns1:describeSObject><ns1:sObjectType>Campaign</ns1:sObjectType></ns1:describeSObject>\",\"trace\":[null,\"/www/vendor/developerforce/force.com-toolkit-for-php/soapclient/SforceBaseClient.php:703\",\"/www/app/vendors/splash/Traits/SalesforceTrait.php:1705\",\"/www/app/controllers/account_controller.php:668\",\"/www/cake/dispatcher.php:204\",\"/www/cake/dispatcher.php:171\",\"/www/app/webroot/index.php:98\"]} - [requestHash=6173dc6c]"
+        }
+      ]
+    }
+  }
+  
