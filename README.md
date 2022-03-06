@@ -1,15 +1,25 @@
-## Log format description files for lnav
-
+## lnav overview
 [http://lnav.org](lnav) is a powerful log file reader, designed to take
 multiple log files and order them by date.  It understands log file formats
 using regular expresions and can highlight sections of line, find errors
 and warnings, and more.
 
-This repository is for the log file format descriptions I've written so far.
+### Installation
+lnav can be installed via homebrew ([formula](https://formulae.brew.sh/formula/lnav))
+```sh
+brew install lnav
+```
+For alternative options refer to the [docs](https://docs.lnav.org/en/latest/intro.html#installation).
+## Log format description files for lnav
 
-You can install these by simply checking this directory out in your
-'~/.lnav/formats' directory.
+This repository is a fork of [lnav-formats](https://github.com/PaulWay/lnav-formats) with the following additional lnav formats useful for Splash:
+* [monolog](monolog.json)
+* [splash_log](splash_log.json)
 
+To install these lnav formats run the following command:
+```sh
+lnav -i splash_log.json monolog.json
+```
 # lnav version
 
 Some of these formats use features that are only available in lnav version
