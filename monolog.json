@@ -1,0 +1,47 @@
+{
+  "monolog": {
+    "title": "Monolog log file",
+    "description": "Monolog log format",
+    "url": "https://github.com/Seldaek/monolog",
+    "regex": {
+      "default": {
+        "pattern": "\\[(?P<timestamp>.*)\\] (?P<logger>\\w+).(?P<level>\\w+): (?P<message>.+) (?P<context>[\\[\\{].*[\\]\\}]) (?P<extra>[\\[\\{].*[\\]\\}])$"
+      }
+    },
+    "level-field" : "level",
+    "body-field" : "message",
+    "level": {
+        "fatal": "EMERGENCY",
+        "critical": "ALERT|CRITICAL",
+        "error": "ERROR",
+        "warning": "WARNING",
+        "stats": "NOTICE",
+        "info": "INFO",
+        "debug": "DEBUG"
+    },
+    "value": {
+        "logger": {
+            "kind": "string",
+            "identifier": true
+        },
+        "level": {
+            "kind": "string",
+            "identifier": true
+        },
+        "message": {
+            "kind": "string"
+        },
+        "context": {
+            "kind": "json"
+        },
+        "extra": {
+            "kind": "json"
+        }
+    },
+    "sample": [
+      {
+        "line": "[2015-08-10 15:05:12] event.DEBUG: Notified event \"kernel.terminate\" to listener \"Symfony\\Component\\HttpKernel\\EventListener\\ProfilerListener::onKernelTerminate\". [] []"
+      }
+    ]
+  }
+}
