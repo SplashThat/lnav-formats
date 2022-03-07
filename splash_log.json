@@ -5,10 +5,10 @@
       "url": "https://github.com/Seldaek/monolog",
       "regex": {
         "default": {
-            "pattern": "^\\[PID (?<process_id>\\d*)] \\[(?<ip_address>(?:[0-9]{1,3}\\.){3}[0-9]{1,3})\\] \\[(?<timestamp>\\d{4}\\-\\d{2}\\-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] (?!\\[SplashSforceSoapClient\\])(?<message>.+) - \\[requestHash=(?<request_hash>\\w+)\\]$"
+            "pattern": "^\\[PID (?<process_id>\\d*)] (?:\\[(?<ip_address>(?:[0-9]{1,3}\\.){3}[0-9]{1,3})\\] )?\\[(?<timestamp>\\d{4}\\-\\d{2}\\-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] (?!\\[SplashSforceSoapClient\\])(?<message>.+) - \\[requestHash=(?<request_hash>\\w+)\\]$"
         },
         "splashSforceSoapClient": {
-            "pattern": "\\[PID (?<process_id>\\d*)] \\[(?<ip_address>(?:[0-9]{1,3}\\.){3}[0-9]{1,3})\\] \\[(?<timestamp>\\d{4}\\-\\d{2}\\-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] \\[SplashSforceSoapClient\\] (?<json_body>.+) - \\[requestHash=(?<request_hash>\\w+)\\]"
+            "pattern": "\\[PID (?<process_id>\\d*)] (?:\\[(?<ip_address>(?:[0-9]{1,3}\\.){3}[0-9]{1,3})\\] )?\\[(?<timestamp>\\d{4}\\-\\d{2}\\-\\d{2} \\d{2}:\\d{2}:\\d{2})\\] \\[SplashSforceSoapClient\\] (?<json_body>.+) - \\[requestHash=(?<request_hash>\\w+)\\]"
         }        
       },
       "body-field" : "message",
