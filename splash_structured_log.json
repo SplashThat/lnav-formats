@@ -1,0 +1,63 @@
+{
+  "splash_cake_structured_log": {
+    "title": "Splash Cake log file format",
+    "description": "Splash Cake log file format",
+    "url": "",
+    "json": true,
+    "body-field" : "message",
+    "level-field" : "loglevel",
+    "timestamp-field": "timestamp",
+    "line-format" : [
+      "[",
+      { "field" : "timestamp" },
+      "] (",
+      { "field" : "pid" },
+      "|",
+      { "field" : "requestHash" },
+      ") ",
+      { "field" : "loglevel", "min-width": 5, "max-width": 5 },
+      " - ",
+      { "field" : "message" }
+  ],
+    "opid-field" : "requestHash",
+    "value": {
+      "message": {
+        "kind": "string"
+      },
+      "sourceIpAddress": {
+        "kind": "string",
+        "identifier": true,
+        "hidden": true
+      },
+      "pid": {
+        "kind": "integer",
+        "identifier": true
+      },      
+      "requestHash": {
+        "kind": "string",
+        "identifier": true
+      },
+      "serviceName": {
+        "kind": "string",
+        "identifier": true,
+        "hidden": true
+      },
+      "hostname": { "hidden": true },
+      "hostbyname": { "hidden": true },
+      "entrypoint": { "hidden": true },
+      "domain": { "hidden": true },
+      "route": { "hidden": true },
+      "route_parameters": { "hidden": true },
+      "request_uri": { "hidden": true },
+      "method": { "hidden": true }
+    },
+    "sample": [
+      {
+        "line": "{\"message\":\"[AccessTokenLoginLogs][9d85q73dgdhpclunb4vlmgi12b][49][Auth::splashApiLogin] Found existing user before auth.\",\"timestamp\":\"2023-01-06 20:15:04\",\"loglevel\":\"info\",\"sourceIpAddress\":\"172.19.0.1\",\"requestHash\":\"40f4da0f\",\"pid\":3713,\"serviceName\":\"cake\"}"
+      },
+      {
+        "line": "{\"message\":\"[Splash\\\\Toolbox\\\\Sanitizer\\\\Sanitizer::xss] Sanitizing time 3.1739211082458 milliseconds\",\"timestamp\":\"2023-01-06 20:15:07\",\"loglevel\":\"debug\",\"sourceIpAddress\":\"172.19.0.1\",\"requestHash\":\"40f4da0f\",\"pid\":3713,\"serviceName\":\"cake\"}"
+      }
+    ]
+  }
+}

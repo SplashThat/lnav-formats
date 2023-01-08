@@ -14,11 +14,12 @@ For alternative options refer to the [docs](https://docs.lnav.org/en/latest/intr
 
 This repository is a fork of [lnav-formats](https://github.com/PaulWay/lnav-formats) with the following additional lnav formats useful for Splash:
 * [monolog](monolog.json)
-* [splash_log](splash_log.json)
+* [splash_structured_log](splash_structured_log.json) - Cake log format for structured logs
+* (Deprecated) [splash_log](splash_log.json) - Cake log format prior to move to structured logs
 
 To install these lnav formats run the following command:
 ```sh
-lnav -i splash_log.json monolog.json
+lnav -i splash_structured_log.json monolog.json
 ```
 # lnav version
 
